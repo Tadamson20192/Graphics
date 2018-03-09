@@ -1,0 +1,119 @@
+﻿  main.cpp
+c:\users\tom\desktop\graphics\openglstuff\include\vector.h(40): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\openglstuff\include\vector.h(39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\openglstuff\include\vector.h(38): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\openglstuff\include\matrix.h(33): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\openglstuff\include\matrix.h(34): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\openglstuff\include\matrix.h(35): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\openglstuff\include\matrix.h(36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\openglstuff\include\matrix.h(43): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\openglstuff\include\matrix.h(44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\openglstuff\include\matrix.h(45): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\openglstuff\include\matrix.h(46): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\openglstuff\include\matrix.h(53): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\openglstuff\include\matrix.h(54): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\openglstuff\include\matrix.h(55): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\openglstuff\include\matrix.h(56): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\openglstuff\include\matrix.h(104): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\openglstuff\include\matrix.h(105): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\openglstuff\include\matrix.h(162): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(73): error C2143: syntax error: missing ';' before 'std::vector<float,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=float
+          ]
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(73): error C2061: syntax error: identifier 'vector'
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(114): error C2059: syntax error: '<L_GRAMMAR_end_class>'
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(82): warning C4018: '<': signed/unsigned mismatch
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(94): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(95): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(96): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(99): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(100): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(101): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(104): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(105): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(106): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(109): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(110): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(111): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(119): error C2143: syntax error: missing ';' before 'std::vector<float,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=float
+          ]
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(119): error C2061: syntax error: identifier 'vector'
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(151): error C2059: syntax error: '<L_GRAMMAR_end_class>'
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(129): warning C4018: '<': signed/unsigned mismatch
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(141): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(142): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(143): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(146): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(147): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(148): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(167): error C2143: syntax error: missing ';' before 'std::vector<float,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=float
+          ]
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(167): error C2061: syntax error: identifier 'vector'
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(212): error C2059: syntax error: '<L_GRAMMAR_end_class>'
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(181): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(182): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(183): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(186): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(187): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(188): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(191): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(192): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(193): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(196): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(197): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(198): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(201): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(202): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(203): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(206): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(207): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(208): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(228): error C2143: syntax error: missing ';' before 'std::vector<float,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=float
+          ]
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(228): error C2061: syntax error: identifier 'vector'
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(278): error C2059: syntax error: '<L_GRAMMAR_end_class>'
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(238): warning C4018: '<': signed/unsigned mismatch
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(239): warning C4018: '<': signed/unsigned mismatch
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(246): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(247): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(248): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(251): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(252): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(253): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(256): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(257): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(258): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(261): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(262): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(263): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(266): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(267): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(268): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(271): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(272): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(273): error C2065: 'coords': undeclared identifier
+c:\users\tom\desktop\graphics\programs\project1\project1\main.cpp(36): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\tom\desktop\graphics\programs\project1\project1\main.cpp(37): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\tom\desktop\graphics\programs\project1\project1\main.cpp(109): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\tom\desktop\graphics\programs\project1\project1\main.cpp(116): error C2039: 'coords': is not a member of 'Torus'
+  c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(214): note: see declaration of 'Torus'
+c:\users\tom\desktop\graphics\programs\project1\project1\main.cpp(116): error C2228: left of '.size' must have class/struct/union
+c:\users\tom\desktop\graphics\programs\project1\project1\main.cpp(117): error C2039: 'coords': is not a member of 'Torus'
+  c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(214): note: see declaration of 'Torus'
+c:\users\tom\desktop\graphics\programs\project1\project1\main.cpp(117): error C2198: 'PFNGLBUFFERDATAPROC': too few arguments for call
+c:\users\tom\desktop\graphics\programs\project1\project1\main.cpp(132): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\tom\desktop\graphics\programs\project1\project1\main.cpp(172): error C2039: 'coords': is not a member of 'Torus'
+  c:\users\tom\desktop\graphics\programs\project1\project1\shape.h(214): note: see declaration of 'Torus'
+c:\users\tom\desktop\graphics\programs\project1\project1\main.cpp(172): error C2228: left of '.size' must have class/struct/union
+c:\users\tom\desktop\graphics\programs\project1\project1\main.cpp(172): error C2198: 'PFNGLDRAWARRAYSPROC': too few arguments for call
