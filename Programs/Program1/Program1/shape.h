@@ -25,6 +25,7 @@ public:
 
 
 
+
 	
 	Triangle(float xx, float yy, int zz) {
 
@@ -45,12 +46,12 @@ public:
 	void translate(float x, float y) {
 		
 		
-		triangle[0] = 0.0f + x;
-		triangle[1] = 0.25 + y;
-		triangle[6] = -0.25f + x;
-		triangle[7] = -0.25f + y;
-		triangle[12] = 0.25f + x;
-		triangle[13] = -0.25f + y;
+		triangle[0] = triangle[0] + x;
+		triangle[1] = triangle[1] + y;
+		triangle[6] = triangle[6] + x;
+		triangle[7] = triangle[7] + y;
+		triangle[12] = triangle[12] + x;
+		triangle[13] = triangle[13] + y;
 	}
 
 	float xLowerBoundary() {

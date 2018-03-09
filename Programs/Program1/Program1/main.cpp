@@ -33,10 +33,10 @@ void framebufferSizeCallback(GLFWwindow* window, int width, int height) {
 
 
 void selectObject(float x, float y) {
-	
+
 	for (int i = 0; i < triangles.size(); i++) {
 
-		
+
 
 		if (x > triangles[i].xLowerBoundary() && x < triangles[i].xUpperBoundary() && y > triangles[i].yLowerBoundary() && y <  triangles[i].yUpperBoundary()) {
 
@@ -52,10 +52,10 @@ void selectObject(float x, float y) {
 
 void drawShape() {
 
-	
 
 
-	
+
+
 
 	for (int i = 0; i < triangles.size(); i++) {
 		//triangles[i]
@@ -82,7 +82,8 @@ void drawShape() {
 
 		glDrawArrays(GL_TRIANGLES, 0, sizeof(triangles[i].triangle));
 
-		
+		glDeleteBuffers(1, &VBO);
+		glDeleteVertexArrays(1, &VAO);
 	}
 
 
@@ -108,24 +109,24 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 		if (state == 0) {
 			triangles.push_back(Triangle((float)xpos, (float)ypos, 1));
 			drawShape();
-			
+
 		}
 		else if (state == 1) {
 			selectObject((float)xpos, (float)ypos);
 
 		}
 		//t1.translate();
-		
-		
+
+
 	}
 
 }
 
 void processInput(GLFWwindow *window, Shader &shader) {
-	
 
 
-	
+
+
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
 		glfwSetWindowShouldClose(window, true);
 	}
@@ -152,7 +153,34 @@ void processInput(GLFWwindow *window, Shader &shader) {
 
 	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
 		if (selected > -1) {
-			triangles[selected].translate(0, .1);
+			triangles[selected].translate(0, .001);
+			drawShape();
+		}
+		else {
+			std::cout << "Please select an object" << std::endl;
+		}
+	}
+	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
+		if (selected > -1) {
+			triangles[selected].translate(0, -.001);
+			drawShape();
+		}
+		else {
+			std::cout << "Please select an object" << std::endl;
+		}
+	}
+	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS) {
+		if (selected > -1) {
+			triangles[selected].translate(-.001, 0);
+			drawShape();
+		}
+		else {
+			std::cout << "Please select an object" << std::endl;
+		}
+	}
+	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS) {
+		if (selected > -1) {
+			triangles[selected].translate(.001, 0);
 			drawShape();
 		}
 		else {
@@ -202,27 +230,26 @@ int main(void) {
 		glfwTerminate();
 		return -1;
 	}
-	
-	
+
+
 
 	/*float vertices[] = {
-		-0.5f, -0.5f, -0.5f,  0.0f, 0.5f, 1.0f,
-		0.5f, -0.5f, -0.5f,  0.0f, 0.5f, 1.0f,
-		0.5f,  0.5f, -0.5f,  0.0f, 0.5f, 1.0f,
-		0.5f,  0.5f, -0.5f,  0.0f, 0.5f, 1.0f,
-		-0.5f,  0.5f, -0.5f,  0.0f, 0.5f, 1.0f,
-		-0.5f, -0.5f, -0.5f,  0.0f, 0.5f, 1.0f,
+	-0.5f, -0.5f, -0.5f,  0.0f, 0.5f, 1.0f,
+	0.5f, -0.5f, -0.5f,  0.0f, 0.5f, 1.0f,
+	0.5f,  0.5f, -0.5f,  0.0f, 0.5f, 1.0f,
+	0.5f,  0.5f, -0.5f,  0.0f, 0.5f, 1.0f,
+	-0.5f,  0.5f, -0.5f,  0.0f, 0.5f, 1.0f,
+	-0.5f, -0.5f, -0.5f,  0.0f, 0.5f, 1.0f,
 
-		
 	};*/
 
-	
+
 
 	// copy vertex data
-	
+
 
 	// create the shaders
-	
+
 	Shader shader("vert.glsl", "frag.glsl");
 	// setup the textures
 	shader.use();
@@ -246,27 +273,22 @@ int main(void) {
 
 
 		/* Render here */
-		
+
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		shader.use();
-		
-		
+		drawShape();
+
+
 		/* Swap front and back and poll for io events */
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
 
 	glfwTerminate();
-	
 
-	
+
+
 	return 0;
 }
-
-
-
-
-
-
