@@ -1,0 +1,19 @@
+﻿  main.cpp
+c:\users\tom\desktop\graphics\programs\program2\program2\face.h(48): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\tom\desktop\graphics\programs\program2\program2\face.h(49): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\tom\desktop\graphics\programs\program2\program2\face.h(50): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\tom\desktop\graphics\programs\program2\program2\face.h(54): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\program2\program2\face.h(55): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\program2\program2\face.h(56): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\program2\program2\readfile.h(27): warning C4101: 'eat3': unreferenced local variable
+c:\users\tom\desktop\graphics\programs\program2\program2\readfile.h(27): warning C4101: 'eat1': unreferenced local variable
+c:\users\tom\desktop\graphics\programs\program2\program2\readfile.h(27): warning C4101: 'eat2': unreferenced local variable
+c:\users\tom\desktop\graphics\programs\program2\program2\readfile.h(95): warning C4018: '<': signed/unsigned mismatch
+c:\users\tom\desktop\graphics\programs\program2\program2\readfile.h(121): warning C4018: '<': signed/unsigned mismatch
+c:\users\tom\desktop\graphics\programs\program2\program2\main.cpp(40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\program2\program2\main.cpp(45): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\program2\program2\main.cpp(51): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\program2\program2\main.cpp(56): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\program2\program2\main.cpp(78): warning C4018: '<': signed/unsigned mismatch
+c:\users\tom\desktop\graphics\programs\program2\program2\main.cpp(194): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Program2.vcxproj -> C:\Users\Tom\Desktop\Graphics\Programs\Program2\Debug\Program2.exe

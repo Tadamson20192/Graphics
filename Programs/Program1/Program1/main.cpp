@@ -44,6 +44,7 @@ GLuint VAO;
 //sets new screen height and width based on new dimensions
 void framebufferSizeCallback(GLFWwindow* window, int width, int height) {
 	glViewport(0, 0, width, height);
+	
 	SCREEN_HEIGHT = height;
 	SCREEN_WIDTH = width;
 }
