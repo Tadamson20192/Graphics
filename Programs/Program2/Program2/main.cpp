@@ -1,218 +1,156 @@
-#include "readFile.h"
-
 #include <iostream>
 #include <string>
 #include <sstream>
 #include <fstream>
 #include <cmath>
-#include <vector>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 #include <shader.h>
+#include "matrix.h"
+#include "matrix3.h"
+#include "vector.h"
+#include "uniform.h"
 
+#include <shape.h>
+#include "model.h"
+#include "camera.h"
+#include "renderer.h"
 
-
-
-
-int screenWidth = 640;
-int screenHeight = 480;
-
-int shadeState = 1;
-
-float translateX = 0.0f;
-float translateY = 0.0f;
-
-
-std::vector<float> vertexes;
+const int SCREEN_WIDTH = 1280;
+const int SCREEN_HEIGHT = 960;
 
 void framebufferSizeCallback(GLFWwindow* window, int width, int height) {
 	glViewport(0, 0, width, height);
-	screenWidth = height;
-	screenHeight = width;
 }
 
-void processInput(GLFWwindow *window, Shader &shader) {
-
-	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
-		if (translateY < 20) {
-			translateY = translateY + .1;
-		}
-	}
-	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
-		if (translateY > -20) {
-			translateY = translateY - .1;
-		}
-	}
-
-	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS) {
-		if (translateX < 20) {
-			translateX = translateX + .1;
-		}
-	}
-	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS) {
-		if (translateX > -20) {
-			translateX = translateX - .1;
-			
-		}
-	}
-
-
-
+bool isPressed(GLFWwindow *window, int key) {
+	return glfwGetKey(window, key) == GLFW_PRESS;
 }
 
-float convertX(float x) {
-	float temp = x / screenWidth;
-	temp = -1 + (temp * 2);
-	return temp; 
-}
-float convertY(float y) {
-	float temp = 1 - (2 * (y / screenHeight));
-	return temp;
+bool isReleased(GLFWwindow *window, int key) {
+	return glfwGetKey(window, key) == GLFW_RELEASE;
 }
 
-void loadShapes() {
-	readFile object("text.txt");
-	
-	for (int i = 0; i < object.faces.size(); i++) {
-		std::cout << "face " << i  << std::endl;
-		
-		
-		vertexes.push_back(object.vertexes[object.faces[i].getP1()].getX());
-		vertexes.push_back(object.vertexes[object.faces[i].getP1()].getY());
-		vertexes.push_back(object.vertexes[object.faces[i].getP1()].getZ());
-		if (shadeState == 1) {
-			vertexes.push_back(object.vertexes[object.faces[i].getP1()].getNX());
-			vertexes.push_back(object.vertexes[object.faces[i].getP1()].getNY());
-			vertexes.push_back(object.vertexes[object.faces[i].getP1()].getNZ());
-		}
-		else {
-			vertexes.push_back(object.faces[i].getNX());
-			vertexes.push_back(object.faces[i].getNY());
-			vertexes.push_back(object.faces[i].getNZ());
-		}
+Matrix processModel(const Matrix& model, GLFWwindow *window) {
+	Matrix trans;
 
+	const float ROT = 1;
+	const float SCALE = .05;
+	const float TRANS = .01;
 
+	// ROTATE
+	if (isPressed(window, GLFW_KEY_U)) { trans.rotate_x(-ROT); }
+	else if (isPressed(window, GLFW_KEY_I)) { trans.rotate_x(ROT); }
+	else if (isPressed(window, GLFW_KEY_O)) { trans.rotate_y(-ROT); }
+	else if (isPressed(window, GLFW_KEY_P)) { trans.rotate_y(ROT); }
+	else if (isPressed(window, '[')) { trans.rotate_z(-ROT); }
+	else if (isPressed(window, ']')) { trans.rotate_z(ROT); }
+	// SCALE
+	else if (isPressed(window, '-')) { trans.scale(1 - SCALE, 1 - SCALE, 1 - SCALE); }
+	else if (isPressed(window, '=')) { trans.scale(1 + SCALE, 1 + SCALE, 1 + SCALE); }
+	// TRANSLATE
+	else if (isPressed(window, GLFW_KEY_UP)) { trans.translate(0, TRANS, 0); }
+	else if (isPressed(window, GLFW_KEY_DOWN)) { trans.translate(0, -TRANS, 0); }
+	else if (isPressed(window, GLFW_KEY_LEFT)) { trans.translate(-TRANS, 0, 0); }
+	else if (isPressed(window, GLFW_KEY_RIGHT)) { trans.translate(TRANS, 0, 0); }
+	else if (isPressed(window, ',')) { trans.translate(0, 0, TRANS); }
+	else if (isPressed(window, '.')) { trans.translate(0, 0, -TRANS); }
 
-		vertexes.push_back(object.vertexes[object.faces[i].getP2()].getX());
-		vertexes.push_back(object.vertexes[object.faces[i].getP2()].getY());
-		vertexes.push_back(object.vertexes[object.faces[i].getP2()].getZ());
-		if (shadeState == 1) {
-			vertexes.push_back(object.vertexes[object.faces[i].getP2()].getNX());
-			vertexes.push_back(object.vertexes[object.faces[i].getP2()].getNY());
-			vertexes.push_back(object.vertexes[object.faces[i].getP2()].getNZ());
-		}
-		else {
-			vertexes.push_back(object.faces[i].getNX());
-			vertexes.push_back(object.faces[i].getNY());
-			vertexes.push_back(object.faces[i].getNZ());
-		}
+	return trans * model;
+}
 
-		vertexes.push_back(object.vertexes[object.faces[i].getP3()].getX());
-		vertexes.push_back(object.vertexes[object.faces[i].getP3()].getY());
-		vertexes.push_back(object.vertexes[object.faces[i].getP3()].getZ());
-		if (shadeState == 1) {
-			vertexes.push_back(object.vertexes[object.faces[i].getP3()].getNX());
-			vertexes.push_back(object.vertexes[object.faces[i].getP3()].getNY());
-			vertexes.push_back(object.vertexes[object.faces[i].getP3()].getNZ());
-		}
-		else {
-			vertexes.push_back(object.faces[i].getNX());
-			vertexes.push_back(object.faces[i].getNY());
-			vertexes.push_back(object.faces[i].getNZ());
-		}
-	
+void processInput(Matrix& model, GLFWwindow *window) {
+	if (isPressed(window, GLFW_KEY_ESCAPE) || isPressed(window, GLFW_KEY_Q)) {
+		glfwSetWindowShouldClose(window, true);
 	}
-
-	
+	model = processModel(model, window);
 }
 
+void errorCallback(int error, const char* description) {
+	fprintf(stderr, "GLFW Error: %s\n", description);
+}
 
 int main(void) {
-
-	
-
 	GLFWwindow* window;
+
+	glfwSetErrorCallback(errorCallback);
+
+	/* Initialize the library */
 	if (!glfwInit()) { return -1; }
-	#ifdef __APPLE__
+
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-#endif
-		/* Create a windowed mode window and its OpenGL context */
-	window = glfwCreateWindow(screenWidth, screenHeight, "program 2", NULL, NULL);
+
+	/* Create a windowed mode window and its OpenGL context */
+	window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "CSCI441-lab", NULL, NULL);
 	if (!window) {
 		glfwTerminate();
 		return -1;
 	}
+
+	/* Make the window's context current */
 	glfwMakeContextCurrent(window);
+
+	// tell glfw what to do on resize
 	glfwSetFramebufferSizeCallback(window, framebufferSizeCallback);
 
+	// init glad
 	if (!gladLoadGL()) {
 		std::cerr << "Failed to initialize OpenGL context" << std::endl;
 		glfwTerminate();
 		return -1;
 	}
 
-	Shader shader("vert.glsl", "frag.glsl");
+	// create obj
+	Model obj(
+		Torus(40, .75, .5, 1, .2, .4).coords,
+		Shader("vert.glsl", "frag.glsl"));
 	
+
+	// make a floor
+	Model floor(
+		DiscoCube().coords,
+		Shader("vert.glsl", "frag.glsl"));
+	Matrix floor_trans, floor_scale;
+	floor_trans.translate(0, -2, 0);
+	floor_scale.scale(100, 1, 100);
+	floor.model = floor_trans * floor_scale;
+
+	// setup camera
+	Matrix projection;
+	projection.perspective(45, 1, .01, 10);
+
+	Camera camera;
+	camera.projection = projection;
+	camera.eye = Vector(0, 0, 3);
+	camera.origin = Vector(0, 0, 0);
+	camera.up = Vector(0, 1, 0);
+
+	// and use z-buffering
 	glEnable(GL_DEPTH_TEST);
-	GLuint program = shader.id();
-	
-	loadShapes();
 
-	GLuint VAO;
-	GLuint VBO;
-	glGenBuffers(1, &VBO);
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, vertexes.size() * sizeof(GLfloat), &vertexes[0], GL_STATIC_DRAW);
-	
-	glGenVertexArrays(1, &VAO);
-	glBindVertexArray(VAO);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float),
-		(void*)0);
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float),
-		(void*)(3 * sizeof(float)));
-	glEnableVertexAttribArray(1);
+	// create a renderer
+	Renderer renderer;
 
-	
-
-	
-	//delete the buffers and arrays to avoid runaway memory problems
-	//glDeleteBuffers(1, &VBO);
-	//glDeleteVertexArrays(1, &VAO);
-
-	shader.use();
+	// set the light position
+	Vector lightPos(3.75f, 3.75f, 4.0f);
 
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window)) {
-		processInput(window, shader);
-
-		float timeValue = glfwGetTime() * .1;
-		
-		GLfloat scale[4][4] = {
-		{ (float)cos(timeValue), 0.0f, (float)sin(timeValue), 0.0f },
-		{ 0.0f, 1.0f, 0.0f, 0.0f },
-		{ (float)-sin(timeValue), 0.0f, (float)cos(timeValue), 0.0f },
-		{ 0.0f, 0.0f, 0.0f, 1.0f }
-		};
-
-		int scaleLocation = glGetUniformLocation(program, "scale");
-		glUniformMatrix4fv(scaleLocation, 1, GL_TRUE, &scale[0][0]);
-
+		// process input
+		processInput(obj.model, window);
 
 		/* Render here */
-
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		
-		shader.use();
-		
-		glBindVertexArray(VAO);
-		glDrawArrays(GL_TRIANGLES, 0, vertexes.size());
+
+		// render the object and the floor
+		renderer.render(camera, obj, lightPos);
+		renderer.render(camera, floor, lightPos);
 
 		/* Swap front and back and poll for io events */
 		glfwSwapBuffers(window);
@@ -220,4 +158,5 @@ int main(void) {
 	}
 
 	glfwTerminate();
+	return 0;
 }
