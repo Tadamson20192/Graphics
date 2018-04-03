@@ -17,6 +17,7 @@ class readFile {
 public: 
 	std::vector<Vertex> vertexes;
 	std::vector<Face> faces;
+	std::vector<float> coords;
 	
 
 	readFile(std::string file) {
@@ -82,7 +83,8 @@ public:
 			}//if face
 		}
 
-
+		calculateNorms();
+		getCoords(1);
 	
 	}
 
@@ -119,10 +121,76 @@ public:
 			vertexes[p3].adjustNormal(nx, ny, nz);
 		}
 		for (int i = 0; i < vertexes.size(); i ++) {
+
 			vertexes[i].finishNormal();
 			
 		
 		}
+
+	}
+
+	void getCoords(int state) {
+		for (int i = 0; i < faces.size(); i++) {
+			int p1, p2, p3;
+			p1 = faces[i].getP1();
+			p2 = faces[i].getP2();
+			p3 = faces[i].getP3();
+
+			//p1
+			coords.push_back(vertexes[p1].getX());
+			coords.push_back(vertexes[p1].getY());
+			coords.push_back(vertexes[p1].getZ());
+
+			coords.push_back(0.0);
+			coords.push_back(1.0);
+			coords.push_back(0.0);
+			
+			if (state == 1) { 
+				coords.push_back(faces[i].getNX()); 
+				coords.push_back(faces[i].getNY());
+				coords.push_back(faces[i].getNZ());
+			}
+
+
+			//p2
+			coords.push_back(vertexes[p2].getX());
+			coords.push_back(vertexes[p2].getY());
+			coords.push_back(vertexes[p2].getZ());
+
+			coords.push_back(0.0);
+			coords.push_back(1.0);
+			coords.push_back(0.0);
+
+			if (state == 1) {
+				coords.push_back(faces[i].getNX());
+				coords.push_back(faces[i].getNY());
+				coords.push_back(faces[i].getNZ());
+			}
+
+			//p3
+			coords.push_back(vertexes[p3].getX());
+			coords.push_back(vertexes[p3].getY());
+			coords.push_back(vertexes[p3].getZ());
+
+			coords.push_back(0.0);
+			coords.push_back(1.0);
+			coords.push_back(0.0);
+
+			if (state == 1) {
+				coords.push_back(faces[i].getNX());
+				coords.push_back(faces[i].getNY());
+				coords.push_back(faces[i].getNZ());
+			}
+
+		
+		}
+
+
+	
+	}
+
+	std::vector<float>& getAdd() {
+		return coords;
 	}
 
 

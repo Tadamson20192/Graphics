@@ -11,9 +11,11 @@
 #include "matrix.h"
 #include "matrix3.h"
 #include "vector.h"
+#include "readFile.h"
 #include "uniform.h"
 
-#include <shape.h>
+
+#include "shape.h"
 #include "model.h"
 #include "camera.h"
 #include "renderer.h"
@@ -109,7 +111,6 @@ int main(void) {
 	Model obj(
 		Torus(40, .75, .5, 1, .2, .4).coords,
 		Shader("vert.glsl", "frag.glsl"));
-	
 
 	// make a floor
 	Model floor(

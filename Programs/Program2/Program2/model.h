@@ -2,6 +2,7 @@
 #define _CSCI441_MODEL_H_
 
 #include <shader.h>
+#include "matrix.h"
 
 class Model {
 
@@ -20,7 +21,7 @@ public:
 		glGenBuffers(1, &vbo);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo);
 		glBufferData(GL_ARRAY_BUFFER, size, coords.data(), GL_STATIC_DRAW);
-
+		//.data()
 		// describe vertex layout
 		glGenVertexArrays(1, &vao);
 		glBindVertexArray(vao);

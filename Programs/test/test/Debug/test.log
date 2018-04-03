@@ -1,0 +1,17 @@
+﻿  main.cpp
+c:\users\tom\desktop\graphics\programs\test\test\face.h(30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\test\test\face.h(34): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\test\test\face.h(39): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\test\test\readfile.h(29): warning C4101: 'eat3': unreferenced local variable
+c:\users\tom\desktop\graphics\programs\test\test\readfile.h(29): warning C4101: 'eat1': unreferenced local variable
+c:\users\tom\desktop\graphics\programs\test\test\readfile.h(29): warning C4101: 'eat2': unreferenced local variable
+c:\users\tom\desktop\graphics\programs\test\test\readfile.h(99): warning C4018: '<': signed/unsigned mismatch
+c:\users\tom\desktop\graphics\programs\test\test\readfile.h(126): warning C4018: '<': signed/unsigned mismatch
+c:\users\tom\desktop\graphics\programs\test\test\readfile.h(136): warning C4018: '<': signed/unsigned mismatch
+c:\users\tom\desktop\graphics\programs\test\test\main.cpp(40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\test\test\main.cpp(45): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\test\test\main.cpp(51): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\test\test\main.cpp(56): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\test\test\main.cpp(78): warning C4018: '<': signed/unsigned mismatch
+c:\users\tom\desktop\graphics\programs\test\test\main.cpp(203): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  test.vcxproj -> C:\Users\Tom\Desktop\Graphics\Programs\test\Debug\test.exe
