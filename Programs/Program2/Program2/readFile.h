@@ -1,3 +1,4 @@
+#pragma once
 #ifndef readFile_H
 #define readFile_H
 
@@ -14,20 +15,20 @@
 
 class readFile {
 
-public: 
+public:
 	std::vector<Vertex> vertexes;
 	std::vector<Face> faces;
 	std::vector<float> coords;
-	
 
-	readFile(std::string file) {
-		
+
+	readFile(std::string file, float scale) {
+
 		std::string line;
 		//string v, valuesX[8], valuesY[8], valuesZ[8];
 		int n = 0;
 		char v, eat1, eat2, eat3;
 		float x, y, z;
-		
+
 
 		std::ifstream myfile(file);
 		while (!myfile.eof())
@@ -38,19 +39,26 @@ public:
 			{
 				std::istringstream iss(line);
 				iss >> v >> x >> y >> z;
-				vertexes.push_back(Vertex(x,y,z));
+				vertexes.push_back(Vertex(x*scale, y*scale, z*scale));
 				std::cout << x << " " << y << " " << z << std::endl;
 			}//if Vector
 			else if (line[0] == 'f')
 			{
-				int p1, p2, p3;
-				
+				int p1, p2, p3, p4 = 0;
+
 				std::istringstream iss(line);
-				iss >> v >> p1 >> p2 >> p3;
-				faces.push_back(Face(p1-1, p2-1, p3-1));
-				std::cout << p1 << " " << p2 << " " << p3 << std::endl;
-				
-				
+				iss >> v >> p1 >> p2 >> p3 >> p4;
+				std::cout << "P4 is " << p4 << std::endl;
+				if (p4 == 0) {//face is a triangle 
+					faces.push_back(Face(p1 - 1, p2 - 1, p3 - 1));
+					std::cout << p1 << " " << p2 << " " << p3 << std::endl;
+				}
+				else{//face is a square
+					faces.push_back(Face(p1 - 1, p2 - 1, p3 - 1));
+					std::cout << p1 << " " << p2 << " " << p3 << std::endl;
+					faces.push_back(Face(p1 - 1, p3 - 1, p4 - 1));
+					std::cout << p1 << " " << p3 << " " << p4 << std::endl;
+				}
 				//std::vector<int> faceValues;
 				//std::string substr;
 				//std::stringstream ss(line);
@@ -84,15 +92,16 @@ public:
 		}
 
 		calculateNorms();
-		getCoords(1);
-	
+
 	}
 
-	void calculateNorms(){
+	void calculateNorms() {
 		float ux, uy, uz;
 		float vx, vy, vz;
 		float nx, ny, nz;
 		int p1, p2, p3;
+
+		std::cout << "I calculated norms" << std::endl;
 
 		for (int i = 0; i < faces.size(); i++) {
 			p1 = faces[i].getP1();
@@ -100,31 +109,32 @@ public:
 			p3 = faces[i].getP3();
 
 
-		//p2 - p1
+			//p2 - p1
 			ux = vertexes[p2].getX() - vertexes[p1].getX();
 			uy = vertexes[p2].getY() - vertexes[p1].getY();
 			uz = vertexes[p2].getZ() - vertexes[p1].getZ();
 
-		//p3-p1
+			//p3-p1
 			vx = vertexes[p3].getX() - vertexes[p1].getX();
 			vy = vertexes[p3].getY() - vertexes[p1].getY();
 			vz = vertexes[p3].getZ() - vertexes[p1].getZ();
 
 			//UxV Nx = UyVz - UzVy
-			nx = (uy*vz) - (uz * vy);
-			ny = (uz * vx) - (ux * vz);
-			nz = (ux * vy) - (uy * vx);
+			nx = (vy*uz) - (vz * uy);
+			ny = (vz * ux) - (vx * uz);
+			nz = (vx * uy) - (vy * ux);
 
+			std::cout << "normal readfile " << nx << " " << ny << " " << nz << std::endl;
 			faces[i].setNorm(nx, ny, nz);
 			vertexes[p1].adjustNormal(nx, ny, nz);
 			vertexes[p2].adjustNormal(nx, ny, nz);
 			vertexes[p3].adjustNormal(nx, ny, nz);
 		}
-		for (int i = 0; i < vertexes.size(); i ++) {
+		for (int i = 0; i < vertexes.size(); i++) {
 
 			vertexes[i].finishNormal();
-			
-		
+
+
 		}
 
 	}
@@ -144,9 +154,9 @@ public:
 			coords.push_back(0.0);
 			coords.push_back(1.0);
 			coords.push_back(0.0);
-			
-			if (state == 1) { 
-				coords.push_back(faces[i].getNX()); 
+
+			if (state == 1) {
+				coords.push_back(faces[i].getNX());
 				coords.push_back(faces[i].getNY());
 				coords.push_back(faces[i].getNZ());
 			}
@@ -182,12 +192,14 @@ public:
 				coords.push_back(faces[i].getNZ());
 			}
 
-		
+
 		}
 
 
-	
+
 	}
+
+
 
 	std::vector<float>& getAdd() {
 		return coords;

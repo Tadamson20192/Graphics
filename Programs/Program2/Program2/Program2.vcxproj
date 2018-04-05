@@ -126,12 +126,9 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="camera.h" />
     <ClInclude Include="Face.h" />
     <ClInclude Include="matrix3.h" />
     <ClInclude Include="model.h" />
-    <ClInclude Include="renderer.h" />
-    <ClInclude Include="uniform.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="matrix.h" />
     <ClInclude Include="Vertex.h" />

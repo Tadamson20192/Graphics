@@ -25,7 +25,9 @@ float translateX = 0.0f;
 float translateY = 0.0f;
 
 
-std::vector<float> vertexes;
+
+std::vector<float> cubeVec;
+std::vector<float> dinoVec;
 
 void framebufferSizeCallback(GLFWwindow* window, int width, int height) {
 	glViewport(0, 0, width, height);
@@ -72,8 +74,8 @@ float convertY(float y) {
 	return temp;
 }
 
-void loadShapes() {
-	readFile object("text.txt");
+void loadShapes(readFile object, std::vector<float> &vertexes) {
+	
 
 	for (int i = 0; i < object.faces.size(); i++) {
 		std::cout << "face " << i << std::endl;
@@ -165,18 +167,22 @@ int main(void) {
 		return -1;
 	}
 
+	readFile dino("text.txt");
+	loadShapes(dino, dinoVec);
+	readFile cube("cube.txt");
+	loadShapes(cube, cubeVec);
 	Shader shader("vert.glsl", "frag.glsl");
-
+	Shader shader2("vert.glsl", "frag.glsl");
 	glEnable(GL_DEPTH_TEST);
 	GLuint program = shader.id();
 
-	loadShapes();
+	
 
 	GLuint VAO;
 	GLuint VBO;
 	glGenBuffers(1, &VBO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, vertexes.size() * sizeof(GLfloat), &vertexes[0], GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, dinoVec.size() * sizeof(GLfloat), &dinoVec[0], GL_STATIC_DRAW);
 
 	glGenVertexArrays(1, &VAO);
 	glBindVertexArray(VAO);
@@ -221,7 +227,7 @@ int main(void) {
 		shader.use();
 
 		glBindVertexArray(VAO);
-		glDrawArrays(GL_TRIANGLES, 0, vertexes.size());
+		glDrawArrays(GL_TRIANGLES, 0, dinoVec.size());
 
 		/* Swap front and back and poll for io events */
 		glfwSwapBuffers(window);

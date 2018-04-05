@@ -14,7 +14,7 @@ class Face {
 
 public:
 	int p1, p2, p3;
-	int n1, n2, n3;
+	float n1, n2, n3;
 	int t1, t2, t3;
 	float normal;
 
@@ -22,19 +22,19 @@ public:
 		p1 = pp1;
 		p2 = pp2;
 		p3 = pp3;
-		
+
 	}
 
 	Face(int pp1, int tt1, int nn1, int pp2, int tt2, int nn2, int pp3, int tt3, int nn3) {
 		p1 = pp1;
 		n1 = nn1;
 		t1 = tt1;
-		
+
 		p2 = pp2;
 		n2 = nn2;
 		t2 = tt2;
-		
-		
+
+
 		p3 = pp3;
 		n3 = nn3;
 		t3 = tt3;
@@ -48,7 +48,7 @@ public:
 		n1 = x;
 		n2 = y;
 		n3 = z;
-		
+
 	}
 
 	float getNX() { return n1; }

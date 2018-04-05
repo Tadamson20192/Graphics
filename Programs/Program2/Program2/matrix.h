@@ -1,31 +1,31 @@
-#pragma once
-#ifndef matrix_H
-#define matrix_H
+#ifndef _CSCI441_MATRIX_H_
+#define _CSCI441_MATRIX_H_
 
-#include <iostream>
-#include <string>
 #include <sstream>
-#include <fstream>
 
-#include <cmath>
-#include "Vector.h"
+#include "vector.h"
 
 class Matrix {
-
-
-private: 
+private:
 	unsigned int idx(unsigned int r, unsigned int c) const {
 		return r + c * 4;
 	}
 
 public:
-	float M_PI = 3.1415;
 	float values[16];
-
+	float M_PI = 3.14156;
 	Matrix() {
 		set_to_identity();
+	};
 
+	void printValuse() {
+		for (int i = 0; i < 16; ++i) {
+			std::cout << "Value " << i << ": " << values[i] << std::endl;
+		
+		}
+	
 	}
+
 	float operator()(int row, int col) const {
 		return values[idx(row, col)];
 	}
@@ -93,6 +93,50 @@ public:
 
 		set_to_identity();
 		mult(values, camera.values, translate.values);
+	}
+	void birdView() {
+		std::cout << "b was pressed" << std::endl;
+		set_to_identity();
+		values[5] = 0;
+		values[6] = -1;
+		values[7] = 0;
+		values[9] = 1;
+		values[10] = 0;
+		printValuse();
+	}
+	void fpv(float xPos, float yPos, float zPos, float xLook, float yLook, float zLook) {
+		set_to_identity();
+		float dirX, dirY, dirZ, upX, upY, upZ, rightX, rightY, rightZ;
+		float normalize = sqrt((xLook* xLook) + (yLook * yLook) + (zLook * zLook));
+		dirX = xLook/normalize;
+		dirY = yLook/normalize;
+		dirZ = zLook/normalize;
+		rightX = dirZ;
+		rightY = 0;
+		rightZ = dirX;
+		normalize = sqrt((rightX* rightX) + (rightY * rightY) + (rightZ * rightZ));
+		rightX = rightX/normalize;
+		rightZ = rightZ/normalize;
+		upX = dirY * rightX;
+		upY = (dirX * rightX) - (dirZ * rightZ);
+		upZ = -1 * dirY * rightZ;
+
+		values[0] = rightX;
+		values[1] = rightY;
+		values[2] = rightZ;
+		values[4] = 0;
+		values[5] = 1;
+		values[6] = 0;
+		values[8] = dirX;
+		values[9] = dirY;
+		values[10] = dirZ;
+		
+
+
+		values[3] = -xPos;
+		values[7] = -yPos ;
+		values[11] = -zPos;
+		printValuse();
 	}
 
 	void ortho(float l, float r, float b, float t, float n, float f) {
@@ -182,8 +226,6 @@ private:
 			}
 		}
 	}
-
-
 };
 
 #endif

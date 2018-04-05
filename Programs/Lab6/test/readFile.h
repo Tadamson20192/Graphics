@@ -13,13 +13,16 @@
 #include <cmath>
 
 
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+
 class readFile {
 
 public:
 	std::vector<Vertex> vertexes;
 	std::vector<Face> faces;
 	std::vector<float> coords;
-
+	
 
 	readFile(std::string file) {
 
@@ -191,6 +194,8 @@ public:
 
 
 	}
+
+	
 
 	std::vector<float>& getAdd() {
 		return coords;
