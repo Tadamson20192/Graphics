@@ -1,0 +1,2 @@
+Program 2
+This is a maze program which reads in a maze and a character from an obj file and displays them as seperate objects. The program has two views: over head which can be reached by pressing B, and and first person view which can be reached by pressing F. The first person view is no working properly, won't snap to the objects location in z direction. However in overhead view the character can be moved up and down and left and right using the arrow keys.

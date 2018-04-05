@@ -60,7 +60,7 @@ public:
 		glUniformMatrix4fv(scaleLocation, 1, GL_FALSE, model.values);
 
 		int viewLocation = glGetUniformLocation(program, "view");
-		glUniformMatrix4fv(viewLocation, 1, GL_FALSE, view.values);
+		glUniformMatrix4fv(viewLocation, 1, GL_TRUE, view.values);
 
 		int projectionLocation = glGetUniformLocation(program, "projection");
 		glUniformMatrix4fv(projectionLocation, 1, GL_FALSE, projection.values);

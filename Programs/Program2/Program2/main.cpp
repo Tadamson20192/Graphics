@@ -24,7 +24,7 @@ int viewState = 1;
 
 float translateX = 0.0f;
 float translateY = 0.0f;
-float sensitivity = .01;
+float sensitivity = .1;
 float xPos = -.1, yPos = .1, zPos = -.8; //center of box
 float xLook = 0, yLook = .0, zLook = 1;// point box is looking at
 
@@ -215,7 +215,7 @@ int main(void) {
 		return -1;
 	}
 
-	projection.perspective(-1,1,-1,1,-1,1);
+	//projection.perspective(-1,1,-1,1,-1,1);
 	readFile dino("maze.txt", .23);
 	loadShapes(dino, dinoVec);
 	Model obj2(dinoVec,Shader("vert.glsl", "frag.glsl"));

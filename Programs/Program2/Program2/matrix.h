@@ -98,10 +98,9 @@ public:
 		std::cout << "b was pressed" << std::endl;
 		set_to_identity();
 		values[5] = 0;
-		values[6] = -1;
-		values[7] = 0;
+		values[6] = 1;
+		//values[7] = -1;
 		values[9] = 1;
-		values[10] = 0;
 		printValuse();
 	}
 	void fpv(float xPos, float yPos, float zPos, float xLook, float yLook, float zLook) {
@@ -133,9 +132,9 @@ public:
 		
 
 
-		values[3] = -xPos;
+		values[3] = ((rightX * - xPos) + (rightY * -yPos) + (rightZ * -zPos));
 		values[7] = -yPos ;
-		values[11] = -zPos;
+		values[11] = ((dirX * -xPos) + (dirY * -yPos) + (dirZ * -zPos));
 		printValuse();
 	}
 

@@ -1,13 +1,13 @@
 #ifndef _CSCI441_RENDERER_H_
 #define _CSCI441_RENDERER_H_
 
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+
+#include <uniform.h>
 #include "matrix3.h"
 #include "camera.h"
 #include "model.h"
-#include "uniform.h"
-
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
 
 class Renderer {
 	Matrix3 itModel_tmp;
