@@ -1,0 +1,16 @@
+﻿  main.cpp
+c:\users\tom\desktop\graphics\openglstuff\include\face.h(30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\openglstuff\include\face.h(34): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\openglstuff\include\face.h(39): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\openglstuff\include\readfile.h(32): warning C4101: 'eat3': unreferenced local variable
+c:\users\tom\desktop\graphics\openglstuff\include\readfile.h(32): warning C4101: 'eat1': unreferenced local variable
+c:\users\tom\desktop\graphics\openglstuff\include\readfile.h(32): warning C4101: 'eat2': unreferenced local variable
+c:\users\tom\desktop\graphics\openglstuff\include\readfile.h(102): warning C4018: '<': signed/unsigned mismatch
+c:\users\tom\desktop\graphics\openglstuff\include\readfile.h(129): warning C4018: '<': signed/unsigned mismatch
+c:\users\tom\desktop\graphics\openglstuff\include\readfile.h(139): warning C4018: '<': signed/unsigned mismatch
+c:\users\tom\desktop\graphics\programs\lab7\lab7\main.cpp(43): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\lab7\lab7\main.cpp(48): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\lab7\lab7\main.cpp(54): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\lab7\lab7\main.cpp(59): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\tom\desktop\graphics\programs\lab7\lab7\main.cpp(267): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Lab7.vcxproj -> C:\Users\Tom\Desktop\Graphics\Programs\Lab7\Debug\Lab7.exe
